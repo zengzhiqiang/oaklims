@@ -5,3 +5,4 @@ migrations/*
 !migrations/__init__.py
 *.sqlite3
 *.txt
+commissions_of_test/migrations/0001_initial.py
