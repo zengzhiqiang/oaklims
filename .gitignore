@@ -4,3 +4,4 @@ venv/
 migrations/*
 !migrations/__init__.py
 *.sqlite3
+*.txt
