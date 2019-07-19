@@ -1,4 +1,5 @@
 from django.db import models
+from product.models import Product
 import datetime
 import os
 
@@ -6,7 +7,7 @@ import os
 
 class Commission(models.Model):
     commission_id = models.CharField(max_length=128)   #送检单编号
-    product_id = models.CharField(max_length=128)    #产品外键，需要修改
+    product_id = models.ForeignKey(Product, on_delete=True)
     creat_time = models.DateTimeField(auto_now_add=True)
 
     def create_commission_id(self):
@@ -30,7 +31,7 @@ class Commission(models.Model):
         else:
             pass
 
-    def save_me(self, commission_info):
+    def save_me(self, commission_info):   #product作为外键后需要修改函数。
         '''
         save之前需要
         1、将送检编号存入配置文件。
