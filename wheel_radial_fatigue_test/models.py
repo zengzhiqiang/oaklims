@@ -10,6 +10,7 @@ class WhRaFaTest(models.Model):
     #wh_ra_fa_test_id = models.CharField(max_length=128)    待定是否需要该字段
     commission_id = models.ForeignKey(Commission, on_delete=True)
     reference_standard = models.CharField(max_length=128)   #所引用的标准，外键与标准关联
+    standard_more = models.CharField(max_length=128)     #与所引用标准的细节相关联，载荷系数。
     number_of_samples = models.IntegerField()
     special_requirement = models.TextField()
     note = models.TextField()
