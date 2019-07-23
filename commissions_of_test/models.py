@@ -41,7 +41,8 @@ class Commission(models.Model):
         :param product:
         :return: None
         '''
-        self.product_id = commission_info[0]
+        self.product_id = commission_info
+        self.create_commission_id()
         self.save()
         filepath = os.path.join(os.path.abspath("."), "oaklims\\配置文件.txt")
         with open(filepath, "w") as fr:    #将当前送检单编号写入配置文件

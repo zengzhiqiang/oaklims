@@ -14,3 +14,6 @@ class WhRaFaTest(models.Model):
     number_of_samples = models.IntegerField()
     special_requirement = models.TextField()
     note = models.TextField()
+
+    def __str__(self):
+        return self.commission_id
