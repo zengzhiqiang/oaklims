@@ -8,3 +8,5 @@ migrations/*
 commissions_of_test/migrations/0001_initial.py
 commissions_of_test/migrations/0002_auto_20190719_2314.py
 product/migrations/0001_initial.py
+wheel_radial_fatigue_test/migrations/0002_checkphoto_photo.py
+wheel_radial_fatigue_test/migrations/0001_initial.py

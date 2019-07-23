@@ -13,6 +13,7 @@ class CheckPhoto(models.Model):
     )
     test_check_id = models.ForeignKey(TestCheck, on_delete=True)
     photo_tag = models.CharField(max_length=6, choices=PHOTO_TAG_CHOICES)
+    photo = models.FileField(default=r"F:\曾志强\实验报告\照片\WeChat Image_20190722125753.png")
     description_of_photo = models.TextField(default=None)
     note_of_photo = models.TextField()
 

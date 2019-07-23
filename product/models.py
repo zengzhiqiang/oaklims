@@ -8,3 +8,6 @@ class Product(models.Model):
     part_no_customer = models.CharField(max_length=128)
     project_name = models.CharField(max_length=128)
     product_specifications = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.project_name

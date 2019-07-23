@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'commissions_of_test',
-    'product'
+    'product',
+    'wheel_radial_fatigue_test',
 ]
 
 MIDDLEWARE = [

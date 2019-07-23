@@ -10,6 +10,9 @@ class Commission(models.Model):
     product_id = models.ForeignKey(Product, on_delete=True)
     creat_time = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.commission_id
+
     def create_commission_id(self):
         '''
         1、自动生成送检单编号（导入的历史送检单不可调用该函数）
