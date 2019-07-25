@@ -6,12 +6,16 @@ import os
 # Create your models here.
 
 class Commission(models.Model):
-    commission_id = models.CharField(max_length=128)   #送检单编号
-    product_id = models.ForeignKey(Product, on_delete=True)
-    creat_time = models.DateTimeField(auto_now_add=True)
+    commission_id = models.CharField(max_length=128, verbose_name="送检编号")   #送检单编号
+    product_id = models.ForeignKey(Product, on_delete=True, verbose_name="项目代号")
+    creat_time = models.DateTimeField(auto_now_add=True, verbose_name="送检日期")
 
     def __str__(self):
         return self.commission_id
+
+    class Meta:
+        verbose_name = "送检单列表"
+        verbose_name_plural = "送检单列表"
 
     def create_commission_id(self):
         '''

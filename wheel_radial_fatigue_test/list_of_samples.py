@@ -2,9 +2,15 @@ from django.db import models
 from .models import WhRaFaTest
 
 class Sample(models.Model):
-    wheel_radial_fatigue_test_id = models.ForeignKey(WhRaFaTest, on_delete=True)
-    sample_name = models.IntegerField()
+    wheel_radial_fatigue_test_id = models.ForeignKey(WhRaFaTest, on_delete=True, verbose_name="送检编号")
+    sample_name = models.IntegerField(verbose_name="样品编号")
 
+    def __str__(self):
+        return self.wheel_radial_fatigue_test_id.commission_id.commission_id + "-" + str(self.sample_name)
+
+    class Meta:
+        verbose_name = "径向样品列表"
+        verbose_name_plural = "径向样品列表"
 
     def create_samples(self, number_of_samples):
         '''
