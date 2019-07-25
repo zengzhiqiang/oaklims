@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'commissions_of_test',
     'product',
     'wheel_radial_fatigue_test',
+    'apparatus',
 ]
 
 MIDDLEWARE = [
