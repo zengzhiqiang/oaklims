@@ -23,7 +23,7 @@ class TestCheck(models.Model):
     photo_check = models.BooleanField(choices=CHECK_TORQUE_OR_PHOTO, default=True, verbose_name="是否拍照")
 
     def __str__(self):
-        return self.check_tag
+        return self.sample_id.wheel_radial_fatigue_test_id.commission_id.commission_id + "-" + str(self.sample_id.sample_name) + self.check_tag
 
     class Meta:
         verbose_name = "试验过程检查列表"

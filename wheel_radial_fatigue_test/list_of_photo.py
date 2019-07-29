@@ -18,7 +18,7 @@ class CheckPhoto(models.Model):
     note_of_photo = models.TextField(verbose_name="备注")
 
     def __str__(self):
-        return self.photo_tag
+        return self.test_check_id.sample_id.wheel_radial_fatigue_test_id.commission_id.commission_id
 
     class Meta:
         verbose_name = "照片列表"
