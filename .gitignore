@@ -14,5 +14,5 @@ commissions_of_test/migrations/0002_auto_20190725_1802.py
 product/migrations/0002_auto_20190725_1802.py
 wheel_radial_fatigue_test/migrations/0003_sample_sample_name.py
 wheel_radial_fatigue_test/migrations/0004_auto_20190725_2224.py
-
+photo/
 IMG_3322.JPG

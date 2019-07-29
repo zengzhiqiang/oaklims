@@ -13,7 +13,7 @@ class CheckPhoto(models.Model):
     )
     test_check_id = models.ForeignKey(TestCheck, on_delete=True, verbose_name="送检编号")
     photo_tag = models.CharField(max_length=6, choices=PHOTO_TAG_CHOICES, verbose_name="照片标签")
-    photo = models.FileField(default=r"F:\曾志强\实验报告\照片\WeChat Image_20190722125753.png", verbose_name="照片")
+    photo = models.FileField(default=r"F:\曾志强\实验报告\照片\WeChat Image_20190722125753.png", verbose_name="照片", upload_to="photo")
     description_of_photo = models.TextField(default=None, verbose_name="照片描述")
     note_of_photo = models.TextField(verbose_name="备注")
 
