@@ -16,3 +16,7 @@ wheel_radial_fatigue_test/migrations/0003_sample_sample_name.py
 wheel_radial_fatigue_test/migrations/0004_auto_20190725_2224.py
 photo/
 IMG_3322.JPG
+media
+wheel_radial_fatigue_test/migrations/0005_auto_20190729_1834.py
+product/migrations/0003_auto_20190729_1834.py
+file_manage/migrations/0001_initial.py
