@@ -23,5 +23,6 @@ class ReportManage(models.Model):
         verbose_name_plural = "报告列表"
 
     def get_file_name(self):
+        '''获取文件名，存入数据库'''
         self.file_name = self.file.name[8:19]
 
