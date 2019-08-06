@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请上传报告</title>
+</head>
+<body>
+<form method="post" action="{% url 'file_manage:upload report' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+</body>
+</html>

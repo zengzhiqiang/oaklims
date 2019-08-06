@@ -23,5 +23,5 @@ class ReportManage(models.Model):
         verbose_name_plural = "报告列表"
 
     def get_file_name(self):
-        self.file_name = self.file.name
+        self.file_name = self.file.name[8:19]
 
