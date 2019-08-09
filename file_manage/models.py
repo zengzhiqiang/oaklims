@@ -26,3 +26,19 @@ class ReportManage(models.Model):
         '''获取文件名，存入数据库'''
         self.file_name = self.file.name[8:19]
 
+    def get_download_url(self):
+        '''为每一份报告生成下载链接'''
+        download_url = self.file_name[0:4] + "\\" + self.file_name[5:7] + "\\" + self.file_name[8:11] + "\\download"
+        return download_url
+
+    def get_report_year(self):
+        year = self.file_name[0:4]
+        return year
+
+    def get_report_month(self):
+        month = self.file_name[5:7]
+        return month
+
+    def get_report_number(self):
+        number = self.file_name[8:11]
+        return number

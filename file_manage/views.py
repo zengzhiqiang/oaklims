@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from file_manage.form import ReportManageForm
-from file_manage.models import ReportManage
+from file_manage.form import ReportManageForm, ReportSearchForm, ReportDetailForm
 from django.http import HttpResponse, FileResponse
 from file_manage.models import ReportManage
 
@@ -51,3 +50,26 @@ def download_report(request, year, month, serial_number):
     response['Content-Type'] = 'application/pdf;charset=utf-8'
     response['Content-Disposition'] = 'attachment;filename=' + report.file_name + '.pdf'
     return response
+
+def search_report(request):
+    '''
+    报告搜索视图
+    :param request:
+    :return:
+    '''
+    if request.method == "POST":
+        form = ReportSearchForm(request.POST)
+        if form.is_valid():
+            try:
+                report = ReportManage.objects.get(file_name=form['report_serial_number'].value())
+                print(report.file_name)
+                context = {'report': report}
+                print(context)
+                return render(request, 'file_manage/report_detail.html', context)
+            except:
+                html = "<html><body>没有这份报告，请返回！</body></html>"
+                return HttpResponse(html)
+    else:
+        form = ReportSearchForm()
+    return render(request, 'file_manage/search_report.html', {'form': form})
+
