@@ -7,7 +7,7 @@ from django.conf import settings
 
 def report_path(instance, filename):
     '''根据文件名返回存储路径'''
-    return filename[0:4] + '//' + filename[5:7] + '//' + filename
+    return filename[0:4] + '\\' + filename[5:7] + '\\' + filename
 
 
 class ReportManage(models.Model):
