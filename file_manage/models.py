@@ -7,7 +7,7 @@ from django.conf import settings
 
 def report_path(instance, filename):
     '''根据文件名返回存储路径'''
-    return filename[0:4] + '\\' + filename[5:7] + '\\' + filename
+    return filename[0:4] + '//' + filename[5:7] + '//' + filename
 
 
 class ReportManage(models.Model):
@@ -28,7 +28,7 @@ class ReportManage(models.Model):
 
     def get_download_url(self):
         '''为每一份报告生成下载链接'''
-        download_url = self.file_name[0:4] + "\\" + self.file_name[5:7] + "\\" + self.file_name[8:11] + "\\download"
+        download_url = self.file_name[0:4] + "//" + self.file_name[5:7] + "//" + self.file_name[8:11] + "//download"
         return download_url
 
     def get_report_year(self):
