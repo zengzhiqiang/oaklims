@@ -12,8 +12,10 @@ def report_path(instance, filename):
 
 class ReportManage(models.Model):
     '''报告文件管理app'''
-    file_name = models.CharField(max_length=32)
+    file_name = models.CharField(max_length=32, unique=True)
     file = models.FileField(upload_to=report_path)
+    add_datetime = models.DateTimeField(auto_now_add=True)
+    add_date = models.DateField(verbose_name='上传日期', auto_now_add=True)
 
     def __str__(self):
         return self.file_name
@@ -21,6 +23,7 @@ class ReportManage(models.Model):
     class Meta:
         verbose_name = "报告列表"
         verbose_name_plural = "报告列表"
+        sorted('add_datetime')
 
     def get_file_name(self):
         '''获取文件名，存入数据库'''

@@ -10,5 +10,14 @@
     {{ form }}
     <input type="submit" value="搜索">
 </form>
+<div>
+    {% for report in reports %}
+    <p>
+        <li>
+            {{ report.file_name }}: {{ report.add_date }} <a href="{% url 'file_manage:download report' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number  %}">下载</a>
+        </li>
+    </p>
+    {% endfor %}
+</div>
 </body>
 </html>
