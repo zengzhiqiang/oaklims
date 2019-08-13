@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'wheel_radial_fatigue_test',
     'apparatus',
     'file_manage',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'media'
+
+AUTH_USER_MODEL = 'user.User'

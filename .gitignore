@@ -20,3 +20,4 @@ media
 wheel_radial_fatigue_test/migrations/0005_auto_20190729_1834.py
 product/migrations/0003_auto_20190729_1834.py
 file_manage/migrations/0001_initial.py
+user/migrations/0001_initial.py
