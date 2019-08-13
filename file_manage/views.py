@@ -68,7 +68,7 @@ def search_report(request):
                 return HttpResponse(html)
     else:
         form = ReportSearchForm()
-        reports = ReportManage.objects.all()
+        reports = ReportManage.objects.order_by('-add_datetime')
         context = {'form': form, 'reports': reports}
     return render(request, 'file_manage/search_report.html', context)
 

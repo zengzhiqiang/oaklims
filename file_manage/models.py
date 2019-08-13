@@ -23,7 +23,7 @@ class ReportManage(models.Model):
     class Meta:
         verbose_name = "报告列表"
         verbose_name_plural = "报告列表"
-        sorted('add_datetime')
+        get_latest_by = "add_datetime"
 
     def get_file_name(self):
         '''获取文件名，存入数据库'''
