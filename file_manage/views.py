@@ -31,7 +31,7 @@ def index_report(request):
     2、提供搜索栏，可按照年份、月份、编号搜索报告
     3、为首页的20份报告后面提供下载按钮
     '''
-    pass
+    return render(request, 'base.html')
 
 def download_report(request, year, month, serial_number):
     '''

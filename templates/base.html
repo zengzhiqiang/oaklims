@@ -1,10 +1,69 @@
+{# 加载bootstrap4 #}
+{% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        {% block title %}{% endblock title %}
+    </title>
+    {# 加载CSS和JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
 </head>
 <body>
-<p>主页</p>
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <h1>浙江金固股份有限公司检测中心</h1>
+    <h3>科学、公正、服务、改进</h3>
+</div>
+<!-- 水平导航栏，小屏幕会自动切换为垂直导航栏 -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- 导航栏内容 -->
+    <a class="navbar-brand" href="#">导航</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="http://192.168.18.8:90/login/Login.jsp?logintype=1" target="_blank">OA(内网)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://122.224.222.62:90/login/Login.jsp?logintype=1" target="_blank">OA(外网)</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid" style="margin-top:30px">
+    <div class="row">
+        <div class="col-sm-4">
+            <ul>
+                <li><a href="#">填写送检单</a></li>
+                <li><a href="http://39.100.140.139/report_manage/search/">查询报告</a> </li>
+            </ul>
+        </div>
+        <div class="col-sm-8">
+            <lu>
+                <li>已检报告</li>
+                <li>待检报告</li>
+            </lu>
+        </div>
+    </div>
+</div>
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <p>友情链接:
+        <a href="https://www.jgwheel.com/">浙江金固股份有限公司</a>，
+        <a href="http://www.toowell.org/">汽车超人</a>，
+        <a href="http://www.jg-eco.com/">杭州金固环保设备科技有限公司</a>
+    </p>
+    <p>Powered by
+        <a href="https://www.python.org/">python</a>,
+        <a href="https://www.djangoproject.com/">django</a>,
+        <a href="https://www.bootcss.com/">bootstrap</a>.
+    </p>
+</div>
 </body>
 </html>

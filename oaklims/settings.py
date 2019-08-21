@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #第三方应用
+    'bootstrap4',
+    #本地应用
     'commissions_of_test',
     'product',
     'wheel_radial_fatigue_test',
