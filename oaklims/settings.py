@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #第三方应用
     'bootstrap4',
     #本地应用
+    'oaklims_main',
     'commissions_of_test',
     'product',
     'wheel_radial_fatigue_test',
