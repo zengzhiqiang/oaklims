@@ -12,14 +12,14 @@ def upload_report(request):
         if form.is_valid():
             filename = request.FILES['file'].name[0:11]
             if ReportManage.objects.filter(file_name=filename).count():
-                html = "<html><body>该报告已存在，请联系管理员!</body></html>"
-                return HttpResponse(html)
+                context = {'message': '报告已存在，请联系管理员'}
+                return render(request, 'file_manage/message.html', context)
             else:
                 report = form.save()
                 report.get_file_name()
                 report.save()
-                html = "<html><body>成功!</body></html>"
-                return HttpResponse(html)
+                context = {'message': '上传成功！'}
+                return render(request, 'file_manage/message.html', context)
     else:
         form = ReportManageForm()
     return render(request, 'file_manage/upload_report.html', {'form': form})
@@ -64,11 +64,14 @@ def search_report(request):
                 context = {'report': report}
                 return render(request, 'file_manage/report_detail.html', context)
             except:
-                html = "<html><body>没有这份报告，请返回！</body></html>"
-                return HttpResponse(html)
+                context = {'message': '没有这份报告'}
+                return render(request, 'file_manage/message.html', context)
     else:
         form = ReportSearchForm()
         reports = ReportManage.objects.order_by('-add_datetime')
         context = {'form': form, 'reports': reports}
     return render(request, 'file_manage/search_report.html', context)
 
+def change_report(request):
+    '''修改已上传的报告'''
+    pass

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>报告下载页面</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 <p>{{ report.file_name }}</p>
 <p><a href="{% url 'file_manage:download report' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number %}">下载</a> </p>
-</body>
-</html>
+{% endblock content %}

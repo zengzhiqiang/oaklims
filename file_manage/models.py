@@ -1,4 +1,5 @@
 from django.db import models
+from user.models import User
 import os
 from django.conf import settings
 
@@ -14,6 +15,8 @@ class ReportManage(models.Model):
     '''报告文件管理app'''
     file_name = models.CharField(max_length=32, unique=True)
     file = models.FileField(upload_to=report_path)
+    upload_by = models.ForeignKey(User, on_delete=True, default=1, related_name='upload by+', verbose_name='上传人')
+    belong_to = models.ForeignKey(User, on_delete=True, default=1, related_name='belong to+', verbose_name='送检人')
     add_datetime = models.DateTimeField(auto_now_add=True)
     add_date = models.DateField(verbose_name='上传日期', auto_now_add=True)
 

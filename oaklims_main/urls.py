@@ -6,4 +6,5 @@ app_name = "oaklims_main"
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
+    path('noyet/', views.noyet, name='noyet')
 ]

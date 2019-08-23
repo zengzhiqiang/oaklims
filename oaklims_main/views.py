@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def homepage(request):
     return render(request, 'oaklims_main/homepage.html')
+
+def noyet(request):
+    return  render(request, 'oaklims_main/noyet.html')

@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>报告查询</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 <form method="post" action="{% url 'file_manage:search report' %}" class="form">
     {% csrf_token %}
     {{ form }}
@@ -19,5 +15,4 @@
     </p>
     {% endfor %}
 </div>
-</body>
-</html>
+{% endblock content %}
