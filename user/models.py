@@ -5,4 +5,5 @@ from django.contrib.auth import get_user_model
 # Create your models here.
 
 class User(AbstractUser):
-    pass
+    depatment = models.CharField(max_length=128, verbose_name="部门", default="检测中心")
+    cellphone = models.CharField(max_length=128, verbose_name="联系电话", default="/")
