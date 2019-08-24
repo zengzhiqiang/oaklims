@@ -37,11 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #第三方应用
+    'bootstrap4',
+    #本地应用
+    'oaklims_main',
     'commissions_of_test',
     'product',
     'wheel_radial_fatigue_test',
     'apparatus',
     'file_manage',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +131,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'media'
+
+AUTH_USER_MODEL = 'user.User'

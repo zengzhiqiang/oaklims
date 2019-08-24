@@ -1,6 +1,6 @@
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "oaklims.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", r"oaklims.settings")
 import django
 django.setup()
 from file_manage.models import ReportManage

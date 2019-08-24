@@ -8,7 +8,7 @@ class ReportManageForm(ModelForm):
     '''
     class Meta:
         model = ReportManage
-        fields = ['file']
+        fields = ['file', 'upload_by', 'belong_to']
 
 class ReportSearchForm(forms.Form):
     '''

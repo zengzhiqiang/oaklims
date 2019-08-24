@@ -8,21 +8,20 @@ from file_manage.models import ReportManage
 def upload_report(request):
     '''上传报告视图'''
     if request.method == 'POST':
-        print(request.POST)
-        print("-------------")
-        print(request.FILES)
-        print("-------")
         form = ReportManageForm(request.POST, request.FILES)
-        print(form)
         if form.is_valid():
-            report = form.save()
-            report.get_file_name()
-            report.save()
-            html = "<html><body>成功!</body></html>"
-            return HttpResponse(html)
+            filename = request.FILES['file'].name[0:11]
+            if ReportManage.objects.filter(file_name=filename).count():
+                context = {'message': '报告已存在，请联系管理员'}
+                return render(request, 'file_manage/message.html', context)
+            else:
+                report = form.save()
+                report.get_file_name()
+                report.save()
+                context = {'message': '上传成功！'}
+                return render(request, 'file_manage/message.html', context)
     else:
         form = ReportManageForm()
-        print(form)
     return render(request, 'file_manage/upload_report.html', {'form': form})
 
 def index_report(request):
@@ -32,7 +31,7 @@ def index_report(request):
     2、提供搜索栏，可按照年份、月份、编号搜索报告
     3、为首页的20份报告后面提供下载按钮
     '''
-    pass
+    return render(request, 'base.html')
 
 def download_report(request, year, month, serial_number):
     '''
@@ -62,14 +61,17 @@ def search_report(request):
         if form.is_valid():
             try:
                 report = ReportManage.objects.get(file_name=form['report_serial_number'].value())
-                print(report.file_name)
                 context = {'report': report}
-                print(context)
                 return render(request, 'file_manage/report_detail.html', context)
             except:
-                html = "<html><body>没有这份报告，请返回！</body></html>"
-                return HttpResponse(html)
+                context = {'message': '没有这份报告'}
+                return render(request, 'file_manage/message.html', context)
     else:
         form = ReportSearchForm()
-    return render(request, 'file_manage/search_report.html', {'form': form})
+        reports = ReportManage.objects.order_by('-add_datetime')
+        context = {'form': form, 'reports': reports}
+    return render(request, 'file_manage/search_report.html', context)
 
+def change_report(request):
+    '''修改已上传的报告'''
+    pass

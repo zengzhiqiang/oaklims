@@ -2,13 +2,23 @@ from django.db import models
 from product.models import Product
 import datetime
 import os
+from user.models import User
 
 # Create your models here.
 
 class Commission(models.Model):
-    commission_id = models.CharField(max_length=128, verbose_name="送检编号")   #送检单编号
-    product_id = models.ForeignKey(Product, on_delete=True, verbose_name="项目代号")
+    commission_id = models.CharField(max_length=128, verbose_name="送检编号")
+    sample_name = models.CharField(max_length=128, verbose_name="样品名称", default="钢制车轮")
+    sample_material = models.CharField(max_length=128, verbose_name="样品材料", default="/")
+    sample_material_no = models.CharField(max_length=128, verbose_name="样品料号/牌号", default="/")
+    sample_no = models.IntegerField(verbose_name="样品数量", default=1)
+    product_id = models.ForeignKey(Product, on_delete=True, verbose_name="项目代号", default=1)
+    client = models.ForeignKey(User, on_delete=True, verbose_name="联系人", default=1)
     creat_time = models.DateTimeField(auto_now_add=True, verbose_name="送检日期")
+    test_item = models.CharField(max_length=128, verbose_name="测试项目", default="弯曲")      #外键，测试项目关联
+    test_method = models.CharField(max_length=128, verbose_name="测试标准", default="GB/T5334-2005")  #外键，测试标准关联
+    test_require = models.TextField(verbose_name="测试方法或条件的特殊要求说明", default="/")
+    note = models.TextField(verbose_name="备注", default="/")
 
     def __str__(self):
         return self.commission_id
