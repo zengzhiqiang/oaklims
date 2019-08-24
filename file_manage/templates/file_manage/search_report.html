@@ -7,12 +7,30 @@
     <input type="submit" value="搜索">
 </form>
 <div>
-    {% for report in reports %}
     <p>
-        <li>
-            {{ report.file_name }}: {{ report.add_date }} <a href="{% url 'file_manage:download report' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number  %}">下载</a>
-        </li>
+        <table class="table">
+        <caption>已上传的报告</caption>
+        <thead>
+        <tr>
+            <th>送检单编号</th>
+            <th>上传日期</th>
+            <th>下载链接</th>
+            <th>送检人</th>
+            <th>上传人</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for report in reports %}
+        <tr>
+            <td>{{ report.file_name }}</td>
+            <td>{{ report.add_date }}</td>
+            <td><a href="{% url 'file_manage:download report' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number %}">下载</a></td>
+            <td>{{ report.belong_to }}</td>
+            <td>{{ report.upload_by }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
     </p>
-    {% endfor %}
 </div>
 {% endblock content %}
