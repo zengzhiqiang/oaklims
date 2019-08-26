@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('oaklims_main.urls')),
     path('report_manage/', include('file_manage.urls')),
     path('user/', include('user.urls')),
+    path('commission/', include('commissions_of_test.urls'))
 ]

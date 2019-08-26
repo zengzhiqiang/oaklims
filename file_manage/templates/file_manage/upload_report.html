@@ -1,11 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
-
-{% block right %}
-    <li><a href="{% url 'oaklims_main:noyet' %}">填写送检单</a></li>
-    <li><a href="{% url 'file_manage:search report' %}">查询报告</a> </li>
-    <li><a href="{% url 'file_manage:upload report' %}">上传报告</a> </li>
-{% endblock right %}
 {% block content %}
 <form method="post" action="{% url 'file_manage:upload report' %}" enctype="multipart/form-data">
     {% csrf_token %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from file_manage.form import ReportManageForm, ReportSearchForm, ReportDetailForm
-from django.http import HttpResponse, FileResponse
+from file_manage.form import ReportManageForm, ReportSearchForm
+from django.http import FileResponse
 from file_manage.models import ReportManage
 
 # Create your views here.
