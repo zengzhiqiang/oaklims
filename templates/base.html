@@ -41,15 +41,13 @@
     <div class="row">
         <div class="col-sm-2">
             <ul>
-                <li><a href="{% url 'oaklims_main:noyet' %}">填写送检单</a></li>
-                <li><a href="{% url 'file_manage:search report' %}">查询报告</a> </li>
-                <li><a href="{% url 'file_manage:upload report' %}">上传报告</a> </li>
+                {% block right %}{% endblock right %}
             </ul>
         </div>
         <div class="col-sm-10">
-            <lu>
+            <ul>
                 {% block content %}{% endblock content %}
-            </lu>
+            </ul>
         </div>
     </div>
 </div>
