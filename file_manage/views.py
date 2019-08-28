@@ -4,6 +4,7 @@ from django.http import FileResponse
 from file_manage.models import ReportManage
 from commissions_of_test.models import Commission
 
+
 # Create your views here.
 
 def upload_report(request):
@@ -19,6 +20,9 @@ def upload_report(request):
                 report = form.save(commit=False)
                 report.get_file_name()
                 report.associate_commission()
+                commission = Commission.objects.get(commission_id=report.file_name)
+                commission.test_status = 2
+                commission.save()
                 report.save()
                 context = {'message': '上传成功！'}
                 return render(request, 'file_manage/message.html', context)
@@ -71,7 +75,8 @@ def search_report(request):
     else:
         form = ReportSearchForm()
         reports = ReportManage.objects.order_by('-add_datetime')
-        context = {'form': form, 'reports': reports}
+        commissions = Commission.objects.all()
+        context = {'form': form, 'reports': reports, 'commissions': commissions}
     return render(request, 'file_manage/search_report.html', context)
 
 def change_report(request):
