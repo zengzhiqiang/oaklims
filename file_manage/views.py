@@ -2,6 +2,7 @@ from django.shortcuts import render
 from file_manage.form import ReportManageForm, ReportSearchForm
 from django.http import FileResponse
 from file_manage.models import ReportManage
+from commissions_of_test.models import Commission
 
 # Create your views here.
 
@@ -10,13 +11,14 @@ def upload_report(request):
     if request.method == 'POST':
         form = ReportManageForm(request.POST, request.FILES)
         if form.is_valid():
-            filename = request.FILES['file'].name[0:11]
+            filename = form.cleaned_data['file'].name[0:11]
             if ReportManage.objects.filter(file_name=filename).count():
                 context = {'message': '报告已存在，请联系管理员'}
                 return render(request, 'file_manage/message.html', context)
             else:
-                report = form.save()
+                report = form.save(commit=False)
                 report.get_file_name()
+                report.associate_commission()
                 report.save()
                 context = {'message': '上传成功！'}
                 return render(request, 'file_manage/message.html', context)

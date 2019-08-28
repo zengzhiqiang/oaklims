@@ -3,7 +3,24 @@
 {% block content %}
 <form method="post" action="{% url 'commission_of_test:fill in commission' %}" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_ul }}
+    <div>
+    {% for field in form %}
+        <div class="fieldWrapper">
+        {{ field.errors }}
+        <div class="row">
+            <div class="col-sm-2">
+                {{ field.label_tag }}
+            </div>
+            <div class="col-sm-8">
+                {{ field }}
+            </div>
+        </div>
+        {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+        </div>
+    {% endfor %}
+    </div>
     <input type="submit" value="保存">
 </form>
 {% endblock content%}

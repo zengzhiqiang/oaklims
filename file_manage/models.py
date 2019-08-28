@@ -1,5 +1,6 @@
 from django.db import models
 from user.models import User
+from commissions_of_test.models import Commission
 import os
 from django.conf import settings
 
@@ -13,6 +14,7 @@ def report_path(instance, filename):
 
 class ReportManage(models.Model):
     '''报告文件管理app'''
+    commission = models.OneToOneField(Commission, on_delete=True, verbose_name="送检编号")
     file_name = models.CharField(max_length=32, unique=True)
     file = models.FileField(upload_to=report_path)
     upload_by = models.ForeignKey(User, on_delete=True, default=1, related_name='upload by+', verbose_name='上传人')
@@ -30,7 +32,7 @@ class ReportManage(models.Model):
 
     def get_file_name(self):
         '''获取文件名，存入数据库'''
-        self.file_name = self.file.name[8:19]
+        self.file_name = self.file.name[0:11]
 
     def get_download_url(self):
         '''为每一份报告生成下载链接'''
@@ -48,3 +50,6 @@ class ReportManage(models.Model):
     def get_report_number(self):
         number = self.file_name[8:11]
         return number
+
+    def associate_commission(self):
+        self.commission = Commission.objects.get(commission_id=self.file_name)
