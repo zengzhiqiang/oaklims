@@ -34,7 +34,7 @@
             <td><a href="{% url 'file_manage:download report' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number %}">下载</a></td>
             <td>{{ report.belong_to }}</td>
             <td>{{ report.upload_by }}</td>
-            <td><a href="#">送检详情</a></td>
+            <td><a href="{% url 'commission_of_test:commission detail' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number%}">送检详情</a></td>
         </tr>
         {% endfor %}
         </tbody>

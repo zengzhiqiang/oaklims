@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django import forms
 from .models import Commission
 
 class CommissionForm(ModelForm):
@@ -18,3 +19,6 @@ class CommissionForm(ModelForm):
             'test_require',
             'note'
         ]
+
+class SearchForm(forms.Form):
+    commission_id = forms.CharField(max_length=128, label="送检单编号")

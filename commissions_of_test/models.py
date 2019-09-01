@@ -22,7 +22,7 @@ class Commission(models.Model):
         (2, '已检')
     )
 
-    commission_id = models.CharField(max_length=128, verbose_name="送检编号")
+    commission_id = models.CharField(max_length=128, verbose_name="送检编号", unique=True)
     sample_name = models.CharField(max_length=128, verbose_name="样品名称", default="钢制车轮")
     sample_material = models.CharField(max_length=128, verbose_name="样品材料", default="/")
     sample_material_no = models.CharField(max_length=128, verbose_name="样品料号/牌号", default="/")
@@ -77,3 +77,15 @@ class Commission(models.Model):
         filepath = os.path.join(os.path.abspath("."), "oaklims\\配置文件.txt")
         with open(filepath, "w") as fr:    #将当前送检单编号写入配置文件
             fr.write(self.commission_id)
+
+    def get_year(self):
+        year = self.commission_id[0:4]
+        return year
+
+    def get_month(self):
+        month = self.commission_id[5:7]
+        return month
+
+    def get_number(self):
+        number = self.commission_id[8:11]
+        return number
