@@ -1,0 +1,35 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+    <table class="table">
+        <caption>送检单列表</caption>
+        <thead>
+            <th>送检单编号</th>
+            <th>样品名称</th>
+            <th>测试项目</th>
+            <th>产品项目</th>
+            <th>创建日期</th>
+            <th>送检人</th>
+            <th>报告上传/下载链接</th>
+            <th>详情</th>
+        </thead>
+        <tbody>
+            {% for commission in commissions %}
+                <tr>
+                    <td>{{ commission.commission_id }}</td>
+                    <td>{{ commission.sample_name }}</td>
+                    <td>{{ commission.test_item }}</td>
+                    <td>{{ commission.product_id }}</td>
+                    <td>{{ commission.creat_time }}</td>
+                    <td>{{ commission.client }}</td>
+                    {% if commission.test_status == 1 %}
+                        <td><a href="{% url 'commission_of_test:upload report' year=commission.get_year month=commission.get_month number=commission.get_number %}">上传报告</a></td>
+                    {% else %}
+                        <td><a href="{% url 'file_manage:download report' year=commission.get_year month=commission.get_month serial_number=commission.get_number %}">下载报告</a></td>
+                    {% endif %}
+                    <td><a href="{% url 'commission_of_test:commission detail' year=commission.get_year month=commission.get_month serial_number=commission.get_number%}">送检详情</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content%}

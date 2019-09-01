@@ -60,3 +60,10 @@ def upload_report(request, year, month, number):
             'number': number,
         }
         return render(request, 'commission_of_test/upload_report.html', context)
+
+def index(request):
+    commissions = Commission.objects.all()
+    context = {
+        'commissions': commissions
+    }
+    return render(request, "commission_of_test/index.html", context)
