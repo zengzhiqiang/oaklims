@@ -17,10 +17,6 @@ def fill_in_commission(request):
         form = CommissionForm()
     return render(request, 'commission_of_test/fill_in_commission.html', {'form': form})
 
-def search_commission(request, commission_id):
-    '''按送检单编号查找送检单详细内容'''
-    pass
-
 def commission_detail(request, year, month, serial_number):
     '''送检单详情视图'''
     commission_id = str(year) + "-" + str(month).zfill(2) + "-" + str(serial_number).zfill(3)

@@ -29,7 +29,7 @@
             <td>{{ report.file_name }}</td>
             <td>{{ report.commission.sample_name }}</td>
             <td>{{ report.commission.test_item }}</td>
-            <th>{{ report.commission.product_id }}</th>
+            <td>{{ report.commission.product_id }}</td>
             <td>{{ report.add_date }}</td>
             <td><a href="{% url 'file_manage:download report' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number %}">下载</a></td>
             <td>{{ report.belong_to }}</td>
