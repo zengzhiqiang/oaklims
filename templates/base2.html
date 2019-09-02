@@ -2,7 +2,8 @@
 
 {% block right %}
     <li><a href="{% url 'commission_of_test:fill in commission' %}">填写送检单</a></li>
-    <li><a href="{% url 'commission_of_test:index' %}">送检单列表</a> </li>
-    <li><a href="{% url 'file_manage:search report' %}">已检列表</a> </li>
-    <li><a href="{% url 'oaklims_main:noyet' %}">送检单审核&分发</a> </li>
+    <li><a href="{% url 'commission_of_test:index' %}">送检单列表</a></li>
+    <li><a href="{% url 'file_manage:search report' %}">已检列表</a></li>
+    <li><a href="{% url 'oaklims_main:noyet' %}">送检单审核&分发</a></li>
+    <li><a href="{% url 'oaklims_main:noyet' %}">绩效考评</a></li>
 {% endblock right %}

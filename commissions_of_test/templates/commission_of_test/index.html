@@ -22,7 +22,7 @@
                     <td>{{ commission.sample_name }}</td>
                     <td>{{ commission.test_item }}</td>
                     <td>{{ commission.product_id }}</td>
-                    <td>{{ commission.creat_time }}</td>
+                    <td>{{ commission.creat_time|date:"Y年m月d日"}}</td>
                     <td>{{ commission.client }}</td>
                     {% if commission.test_status == 1 %}
                         <td><a href="{% url 'commission_of_test:upload report' year=commission.get_year month=commission.get_month number=commission.get_number %}">上传报告</a></td>
