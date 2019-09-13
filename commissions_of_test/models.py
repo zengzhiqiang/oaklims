@@ -89,3 +89,6 @@ class Commission(models.Model):
     def get_number(self):
         number = self.commission_id[8:11]
         return number
+
+class AssignedTo(models.Model):
+    pass
