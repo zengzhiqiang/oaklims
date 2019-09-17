@@ -91,4 +91,12 @@ class Commission(models.Model):
         return number
 
 class AssignedTo(models.Model):
-    pass
+    commission_id = models.ForeignKey(Commission, on_delete=True, verbose_name="送检单编号")
+    assigned_to = models.ForeignKey(User, on_delete=True, verbose_name="分配给")
+
+    class Meta:
+        verbose_name = "分配清单"
+        verbose_name_plural = "分配清单"
+
+    def __str__(self):
+        return self.commission_id.commission_id

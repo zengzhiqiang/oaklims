@@ -1,8 +1,20 @@
 {% extends 'base2.html' %}
 
 {% block content %}
+    <table>
+        <thead>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <li>送检编号：</li>
     {{ commission.commission_id }}
+    <li>项目代号：</li>
     {{ commission.product_id }}
+    <li>样品名称：</li>
     {{ commission.sample_name }}
+    <li>测试项目：</li>
     {{ commission.test_item }}
 {% endblock content%}
