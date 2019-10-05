@@ -23,20 +23,17 @@ def commission_detail(request, pk):
     context = {'commission': commission}
     return render(request, 'commission_of_test/commission_detail.html', context)
 
-def upload_report(request, year, month, number):
+def upload_report(request, pk):
     '''将报告上传到指定送检单'''
     if request.method == "POST":
         form = ReportManageForm(request.POST, request.FILES)
         if form.is_valid():
             report = form.save(commit=False)
             report.get_file_name()
-            print(report.file_name)
-            commission_id = year + '-' + month + '-' + number
-            print(commission_id)
-            if report.file_name == commission_id:
+            commission = Commission.objects.get(pk=pk)
+            if report.file_name == commission.commission_id:
                 report.associate_commission()
                 report.save()
-                commission = Commission.objects.get(commission_id=commission_id)
                 commission.test_status = 2
                 commission.save()
                 message = "上传成功"
@@ -46,13 +43,12 @@ def upload_report(request, year, month, number):
                 return render(request, 'commission_of_test/message.html', {'message': message})
     else:
         form = ReportManageForm()
-        message = "请上传编号为" + year + '-' + month + '-' + number + "的报告！"
+        commission = Commission.objects.get(pk=pk)
+        message = "请上传编号为" + commission.commission_id + "的报告！"
         context = {
             'form': form,
             'message': message,
-            'year': year,
-            'month': month,
-            'number': number,
+            'pk': pk,
         }
         return render(request, 'commission_of_test/upload_report.html', context)
 

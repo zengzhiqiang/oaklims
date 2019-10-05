@@ -25,7 +25,7 @@
                     <td>{{ commission.creat_time|date:"Y年m月d日"}}</td>
                     <td>{{ commission.client }}</td>
                     {% if commission.test_status == 1 %}
-                        <td><a href="{% url 'commission_of_test:upload report' year=commission.get_year month=commission.get_month number=commission.get_number %}">上传报告</a></td>
+                        <td><a href="{% url 'commission_of_test:upload report' pk=commission.pk %}">上传报告</a></td>
                     {% else %}
                         <td><a href="{% url 'file_manage:download report' pk=commission.pk %}">下载报告</a></td>
                     {% endif %}

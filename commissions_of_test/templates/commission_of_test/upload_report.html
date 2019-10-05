@@ -2,7 +2,7 @@
 
 {% block content %}
     {{ message }}
-    <form method="post" action="{% url 'commission_of_test:upload report' year=year month=month number=number%}" enctype="multipart/form-data">
+    <form method="post" action="{% url 'commission_of_test:upload report' pk=pk %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit">
