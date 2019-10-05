@@ -39,7 +39,7 @@ def index_report(request):
     '''
     return render(request, 'base.html')
 
-def download_report(request, year, month, serial_number):
+def download_report(request, pk):
     '''
     报告下载视图，提供下载报告的链接
     :param request:
@@ -48,8 +48,8 @@ def download_report(request, year, month, serial_number):
     :param serial_number: 报告编号
     :return:
     '''
-    report_name = str(year) + "-" + str(month).zfill(2) + "-" + str(serial_number).zfill(3)
-    report = ReportManage.objects.get(file_name=report_name)
+
+    report = ReportManage.objects.get(commission_id=pk)
     f = open(report.file.path, 'rb')
     response = FileResponse(f)
     response['Content-Type'] = 'application/pdf;charset=utf-8'

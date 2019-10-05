@@ -2,5 +2,5 @@
 
 {% block content %}
     <p>{{ report.file_name }}</p>
-    <p><a href="{% url 'file_manage:download report' year=report.get_report_year month=report.get_report_month serial_number=report.get_report_number %}">下载</a> </p>
+    <p><a href="{% url 'file_manage:download report' pk=report.commission_id %}">下载</a> </p>
 {% endblock content %}

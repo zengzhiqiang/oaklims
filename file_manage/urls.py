@@ -8,6 +8,6 @@ urlpatterns = [
     #path("admin/", admin.site.urls),
     path('index', views.index_report, name="index report"),
     path('upload', views.upload_report, name="upload report"),
-    path('<int:year>/<int:month>/<int:serial_number>/download/', views.download_report, name="download report"),
+    path('<int:pk>/download/', views.download_report, name="download report"),
     path('search/', views.search_report, name="search report")
 ]

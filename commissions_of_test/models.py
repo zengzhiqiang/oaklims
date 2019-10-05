@@ -18,8 +18,10 @@ class TestItem(models.Model):
 
 class Commission(models.Model):
     TEST_STATUS_CHOICES = (
-        (1, '待检'),
-        (2, '已检')
+        (1, "审核&分发"),
+        (2, '检测'),
+        (3, '核算'),
+        (4, '归档'),
     )
 
     commission_id = models.CharField(max_length=128, verbose_name="送检编号", unique=True)
