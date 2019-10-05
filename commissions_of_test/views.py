@@ -17,10 +17,9 @@ def fill_in_commission(request):
         form = CommissionForm()
     return render(request, 'commission_of_test/fill_in_commission.html', {'form': form})
 
-def commission_detail(request, year, month, serial_number):
+def commission_detail(request, pk):
     '''送检单详情视图'''
-    commission_id = str(year) + "-" + str(month).zfill(2) + "-" + str(serial_number).zfill(3)
-    commission = Commission.objects.get(commission_id=commission_id)
+    commission = Commission.objects.get(pk=pk)
     context = {'commission': commission}
     return render(request, 'commission_of_test/commission_detail.html', context)
 

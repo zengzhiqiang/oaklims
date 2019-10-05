@@ -29,7 +29,7 @@
                     {% else %}
                         <td><a href="{% url 'file_manage:download report' pk=commission.pk %}">下载报告</a></td>
                     {% endif %}
-                    <td><a href="{% url 'commission_of_test:commission detail' year=commission.get_year month=commission.get_month serial_number=commission.get_number%}">送检详情</a></td>
+                    <td><a href="{% url 'commission_of_test:commission detail' pk=commission.pk %}">送检详情</a></td>
                 </tr>
             {% endfor %}
         </tbody>
