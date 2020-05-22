@@ -38,3 +38,5 @@ commissions_of_test/migrations/0003_auto_20190901_1107.py
 commissions_of_test/migrations/0003_auto_20190901_1132.py
 commissions_of_test/migrations/0004_assignedto.py
 commissions_of_test/migrations/0005_auto_20190920_1731.py
+file_manage/migrations/0002_auto_20200522_1751.py
+commissions_of_test/migrations/0002_auto_20200522_1751.py

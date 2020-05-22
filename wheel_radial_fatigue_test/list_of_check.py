@@ -15,7 +15,7 @@ class TestCheck(models.Model):
         (True, "是"),
         (False, "否"),
     )
-    sample_id = models.ForeignKey(Sample, on_delete=True, verbose_name="样品编号")
+    sample_id = models.ForeignKey(Sample, on_delete=models.CASCADE, verbose_name="样品编号")
     check_tag = models.CharField(max_length=5, choices=CHECK_TAR_CHOICES, default="CLSX", verbose_name="检查标签")
     number_of_cycles = models.BigIntegerField(verbose_name="循环次数")
     description_of_crack = models.TextField(default="无", verbose_name="裂纹描述")

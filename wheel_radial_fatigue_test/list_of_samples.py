@@ -2,7 +2,7 @@ from django.db import models
 from .models import WhRaFaTest
 
 class Sample(models.Model):
-    wheel_radial_fatigue_test_id = models.ForeignKey(WhRaFaTest, on_delete=True, verbose_name="送检编号")
+    wheel_radial_fatigue_test_id = models.ForeignKey(WhRaFaTest, on_delete=models.CASCADE, verbose_name="送检编号")
     sample_name = models.IntegerField(verbose_name="样品编号")
 
     def __str__(self):

@@ -3,7 +3,7 @@ from .list_of_check import TestCheck
 
 class TorqueValue(models.Model):
     '''扭矩值可为空，需要修复。'''
-    test_check_id = models.ForeignKey(TestCheck, on_delete=True)
+    test_check_id = models.ForeignKey(TestCheck, on_delete=models.CASCADE)
     TorqueValue1 = models.IntegerField(default=None, verbose_name="扭矩值1", blank=True)
     TorqueValue2 = models.IntegerField(default=None, verbose_name="扭矩值2", blank=True)
     TorqueValue3 = models.IntegerField(default=None, verbose_name="扭矩值3", blank=True)

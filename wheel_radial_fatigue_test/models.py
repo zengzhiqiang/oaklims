@@ -10,8 +10,8 @@ class WhRaFaTest(models.Model):
     径向送检单的模型
     '''
     #wh_ra_fa_test_id = models.CharField(max_length=128)    待定是否需要该字段
-    commission_id = models.ForeignKey(Commission, on_delete=True, verbose_name="送检编号")
-    standard_more = models.ForeignKey(WhRaFaTeStandDetail, on_delete=True, verbose_name="标准详情")   #与所引用标准的细节相关联，载荷系数。
+    commission_id = models.ForeignKey(Commission, on_delete=models.CASCADE, verbose_name="送检编号")
+    standard_more = models.ForeignKey(WhRaFaTeStandDetail, on_delete=models.CASCADE, verbose_name="标准详情")   #与所引用标准的细节相关联，载荷系数。
     number_of_samples = models.IntegerField(verbose_name="样品数量")
     special_requirement = models.TextField(verbose_name="特殊要求")
     note = models.TextField(verbose_name="备注")

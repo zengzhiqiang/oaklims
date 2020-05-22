@@ -14,11 +14,11 @@ def report_path(instance, filename):
 
 class ReportManage(models.Model):
     '''报告文件管理app'''
-    commission = models.OneToOneField(Commission, on_delete=True, verbose_name="送检编号")
+    commission = models.OneToOneField(Commission, on_delete=models.CASCADE, verbose_name="送检编号")
     file_name = models.CharField(max_length=32, unique=True)
     file = models.FileField(upload_to=report_path)
-    upload_by = models.ForeignKey(User, on_delete=True, default=1, related_name='upload by+', verbose_name='上传人')
-    belong_to = models.ForeignKey(User, on_delete=True, default=1, related_name='belong to+', verbose_name='送检人')
+    upload_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1, related_name='upload by+', verbose_name='上传人')
+    belong_to = models.ForeignKey(User, on_delete=models.CASCADE, default=1, related_name='belong to+', verbose_name='送检人')
     add_datetime = models.DateTimeField(auto_now_add=True)
     add_date = models.DateField(verbose_name='上传日期', auto_now_add=True)
 

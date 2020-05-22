@@ -6,7 +6,7 @@ class WhRaFaTeStandDetail(models.Model):
         (True, "允许"),
         (False, "不允许"),
     )
-    wh_ra_fa_stand_id = models.ForeignKey(WhRaFaTeStand, on_delete=True, verbose_name="标准名")
+    wh_ra_fa_stand_id = models.ForeignKey(WhRaFaTeStand, on_delete=models.CASCADE, verbose_name="标准名")
     test_factor = models.FloatField(verbose_name="载荷系数")
     requirement = models.BigIntegerField(verbose_name="标准要求")
     allow_crack = models.BooleanField(choices=CRACK_ALLOW_CHOICE, verbose_name="裂纹要求")
