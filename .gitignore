@@ -4,7 +4,6 @@ venv/
 migrations/*
 !migrations/__init__.py
 *.sqlite3
-*.txt
 commissions_of_test/migrations/0001_initial.py
 commissions_of_test/migrations/0002_auto_20190719_2314.py
 product/migrations/0001_initial.py
@@ -40,3 +39,5 @@ commissions_of_test/migrations/0004_assignedto.py
 commissions_of_test/migrations/0005_auto_20190920_1731.py
 file_manage/migrations/0002_auto_20200522_1751.py
 commissions_of_test/migrations/0002_auto_20200522_1751.py
+oaklims/配置文件.txt
+file_manage/output.txt
